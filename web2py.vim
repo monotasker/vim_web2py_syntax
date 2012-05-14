@@ -11,6 +11,8 @@ elseif exists("b:current_syntax")
   finish
 endif
 
+syntax include @Python syntax/python.vim
+
 syntax case match
 
 " web2py - python keywords
@@ -69,7 +71,7 @@ syn region w2pArgument contained start=/'/ skip=/\\'/ end=/'/
 syn region w2pArgument contained start=/"/ skip=/\\"/ end=/"/
 
 " web2py template tag 
-syn region djangoTagBlock start="{{" end="}}" contains=w2pPythonStatement,w2pGlobalObjects,w2pArgument,w2pNavigation,w2pInternat,w2pHelpers,w2pHtmlAttributes display
+syn region w2pTagBlock start="{{" end="}}" contains=w2pPythonStatement,w2pGlobalObjects,w2pArgument,w2pNavigation,w2pInternat,w2pHelpers,w2pHtmlAttributes display
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already

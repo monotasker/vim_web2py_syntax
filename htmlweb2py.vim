@@ -30,10 +30,15 @@ else
   unlet b:current_syntax
 endif
 
+syntax include @Python syntax/python.vim
+syntax include @JS syntax/javascript.vim
+
 syn cluster w2pTemplateBlocks contains=w2pPythonStatement,w2pGlobalObjects,w2pArgument,w2pNavigation,w2pInternat,w2pHelpers,w2pHtmlAttributes,w2pComment
 
-"FIXME why 'containedin=ALL' does not work ?
-syn region w2pTagBlock start="{{" end="}}" contains=@w2pTemplateBlocks display containedin=ALLBUT,@wrong
+syn region w2pTagBlock start="{{" end="}}" contains=@Python display 
+"containedin=ALLBUT,@wrong
+
+syn region jsBlock start="<script>" end="</script>" contains=@JS display
 
 hi link w2pTagBlock Normal
 
